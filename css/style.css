@@ -67,6 +67,48 @@ body {
 	padding: 0px 10px;
 	margin: 20px 0px;
 }
+#img {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.menu-item {
+	position: relative;
+	display: inline-block;
+	border: 1px dashed #000;
+	padding: 10px;
+	background: #ffffa2;
+	height: 20px;
+	opacity: 0.3;
+	text-decoration: none;
+	
+	/* Firefox */
+	-moz-transition: all 1s ease;
+	/* WebKit */
+	-webkit-transition: all 1s ease;
+	/* Opera */
+	-o-transition: all 1s ease;
+	/* Standard */
+	transition: all 1s ease;
+}
+
+.menu-item:hover {
+	opacity: 1;
+	
+	/* Firefox */
+	-moz-transform: scale(2) rotate(30deg) translate(50px);
+	/* WebKit */
+	-webkit-transform: scale(1.2) rotate(30deg) translate(50px);
+	/* Opera */
+	-o-transform: scale(2) rotate(30deg) translate(50px);
+	/* Standard */
+	transform: scale(2) rotate(30deg) translate(50px);
+	
+	z-index: 1000;
+}
 
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/

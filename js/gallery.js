@@ -33,15 +33,39 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
-	//Add code here to access the #slideShow element.
-	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
-	//from the JSON string
+	{
+		document.slide3.src = mImages[0];
+		if(k < path3.length - 1){ k++;} else {k = 0;}
+		setTimeout("swapPhoto()",2000);
+	 }
 	console.log('swap photo');
 }
 
+var mImages = []
+mImages[0]= "http://placehold.it/518x389?text=index+0";
+mImages[1]= "http://placehold.it/518x389?text=index+1";
+mImages[2]= "http://placehold.it/518x389?text=index+2";
+
 // Counter for the mImages array
 var mCurrentIndex = 0;
+// Create an empty object
+const output = {};
+
+// Iterate over the objects in the array
+// I've destructured the name and amount from
+// the object (documentation below)
+for (const { date, description } of mImages) {
+
+  // If the output object doesn't have a property
+  // key that matches the current object's name
+  // create it by assigning it zero
+  output[] ??= 0;
+
+  // Then increase its amount
+  output[] += amount;
+}
+
+console.log(output);
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
