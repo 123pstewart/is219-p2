@@ -67,27 +67,32 @@ for (const { date, description } of mImages) {
 
 console.log(output);
 
-// XMLHttpRequest variable
-var mRequest = new XMLHttpRequest();
+// // XMLHttpRequest variable
+// var mRequest = new XMLHttpRequest();
 
-mRequest.onreadystatechange= function() {
-	  if (this.readyState == 4 && this.status == 200) {
-	   mJson= JSON.parse(mRequest.responseText)
-	  }
-	};
-	mRequest.open("GET", mUrl, true);
-	mRequest.send();
+// mRequest.onreadystatechange= function() {
+// 	  if (this.readyState == 4 && this.status == 200) {
+// 	   mJson= JSON.parse(mRequest.responseText)
+// 	  }
+// 	};
+// 	mRequest.open("GET", mUrl, true);
+// 	mRequest.send();
 
-
+var mCurrentIndex = 0;
 // Array holding GalleryImage objects (see below).
-var mImages = [];
+var mRequest = new XMLHttpRequest();
 
 // Holds the retrived JSON information
 var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = '../images.json';
+mRequest.onreadystatechange = function (){
+	if(this.ready == 4 && this.status ==200){
+		mJson = Json.parse(mRequest.responseText);
+		console.log(mJson);
+	}
+}
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -113,10 +118,10 @@ window.addEventListener('load', function() {
 }, false);
 
 function GalleryImage() {
-	this.location ="";
-	this.description = "red";
-	this.date = "";
-	this.img= "";
+	let location= ""
+	let description= ""
+	let date= ""
+	let img= ""
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	//2. description of photo
